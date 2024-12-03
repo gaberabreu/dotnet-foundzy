@@ -1,27 +1,11 @@
-using System.Reflection;
-using FluentValidation;
-using Foundzy;
-using Foundzy.Sample.Layers.Domain.NotificationsAggregate.Interfaces;
-using Foundzy.Sample.Layers.Domain.SkuAggregate.Interfaces;
-using Foundzy.Sample.Layers.Infra.Data.Repositories;
-using MediatR;
+using Foundzy.Sample.Layers.Web.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Host.AddLoggerConfigs();
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
-
-builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-
-builder.Services.AddMediatR(cfg =>
-{
-    cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-    cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
-});
-builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
-
-builder.Services.AddSingleton<ISkuRepository, SkuRepository>();
-builder.Services.AddSingleton<INotificationRepository, NotificationRepository>();
+builder.Services.AddServiceConfigs();
 
 var app = builder.Build();
 
