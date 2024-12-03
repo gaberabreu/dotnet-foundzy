@@ -1,17 +1,16 @@
-﻿using Foundzy.Sample.Layers.Domain.SkuAggregate;
-using Foundzy.Sample.Layers.Domain.SkuAggregate.Events;
-using Foundzy.Sample.Layers.Domain.SkuAggregate.Interfaces;
+﻿using Foundzy.Sample.Layers.Core.SkuAggregate;
+using Foundzy.Sample.Layers.Core.SkuAggregate.Events;
 using MediatR;
 
 namespace Foundzy.Sample.Layers.UseCases.Skus.Create;
 
-public class CreateSkuCommandHandler(ISkuRepository repository, IMediator mediator) : ICommandHandler<CreateSkuCommand, Sku>
+public class CreateSkuCommandHandler(IRepository<Sku> repository, IMediator mediator) : ICommandHandler<CreateSkuCommand, Sku>
 {
     public async Task<Sku> Handle(CreateSkuCommand request, CancellationToken cancellationToken)
     {
         var sku = new Sku(request.Name);
 
-        await repository.Add(sku, cancellationToken);
+        await repository.AddAsync(sku, cancellationToken);
 
         var @event = new SkuCreatedEvent(sku);
         await mediator.Publish(@event, cancellationToken);

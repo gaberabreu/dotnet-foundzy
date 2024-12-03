@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
-using Foundzy.Sample.Layers.Domain.NotificationsAggregate;
-using Foundzy.Sample.Layers.Domain.NotificationsAggregate.Interfaces;
+using Foundzy.Sample.Layers.Core.NotificationsAggregate;
 using Foundzy.Sample.Layers.UseCases.Notifications.List;
 using Moq;
 
@@ -8,12 +7,12 @@ namespace Foundzy.Sample.UnitTests.Layers.UseCases.Notifications.List;
 
 public class ListNotificationsQueryHandlerTests
 {
-    private readonly Mock<INotificationRepository> _repository;
+    private readonly Mock<IReadRepository<Notification>> _repository;
     private readonly ListNotificationsQueryHandler _handler;
 
     public ListNotificationsQueryHandlerTests()
     {
-        _repository = new Mock<INotificationRepository>();
+        _repository = new Mock<IReadRepository<Notification>>();
         _handler = new(_repository.Object);
     }
 
@@ -29,7 +28,7 @@ public class ListNotificationsQueryHandlerTests
             new(DateTime.UtcNow, "Source2", "Message2")
         };
 
-        _repository.Setup(e => e.GetAll(It.IsAny<CancellationToken>())).ReturnsAsync(notifications);
+        _repository.Setup(e => e.ListAsync(It.IsAny<CancellationToken>())).ReturnsAsync(notifications);
 
         // Act
         var result = await _handler.Handle(query, CancellationToken.None);
@@ -38,6 +37,6 @@ public class ListNotificationsQueryHandlerTests
         result.Should().HaveCount(2);
         result.Should().Contain(notifications);
 
-        _repository.Verify(e => e.GetAll(It.IsAny<CancellationToken>()), Times.Once);
+        _repository.Verify(e => e.ListAsync(It.IsAny<CancellationToken>()), Times.Once);
     }
 }
