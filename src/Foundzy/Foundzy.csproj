@@ -5,6 +5,25 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  
+  <PropertyGroup Label="Package info">
+    <PackageId>Foundzy</PackageId>
+    <PackageDescription>Foundzy is a library of useful base classes, primarily used by me in other projects.</PackageDescription>
+    <Authors>Gabriel Abreu (@gaberabreu)</Authors>
+    <PackageProjectUrl>https://github.com/gaberabreu/dotnet-foundzy</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/gaberabreu/dotnet-foundzy</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageIcon>Icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>$(Version)</Version>
+  </PropertyGroup>
+
+  <ItemGroup Label="Package files">
+    <None Include="..\..\docs\assets\Icon.png" Visible="false" Pack="true" PackagePath="/" />
+    <None Include="..\..\README.md" Visible="false" Pack="true" PackagePath="/" />
+    <None Include="..\..\LICENSE" Visible="false" Pack="true" PackagePath="/" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.4.1" />
