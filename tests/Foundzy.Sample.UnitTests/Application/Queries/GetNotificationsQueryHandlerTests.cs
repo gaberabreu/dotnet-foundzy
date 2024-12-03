@@ -32,7 +32,7 @@ public class GetNotificationsQueryHandlerTests
         _repository.Setup(e => e.GetAll(It.IsAny<CancellationToken>())).ReturnsAsync(notifications);
 
         // Act
-        var result = await _handler.Handle(query);
+        var result = await _handler.Handle(query, CancellationToken.None);
 
         // Assert
         result.Should().HaveCount(2);

@@ -9,7 +9,7 @@ public record AddSkuCommand(string Name) : ICommand<Sku>;
 
 public class AddSkuCommandHandler(ISkuRepository repository, IMediator mediator) : ICommandHandler<AddSkuCommand, Sku>
 {
-    public async Task<Sku> Handle(AddSkuCommand request, CancellationToken cancellationToken = default)
+    public async Task<Sku> Handle(AddSkuCommand request, CancellationToken cancellationToken)
     {
         var sku = new Sku(request.Name);
 

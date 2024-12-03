@@ -27,7 +27,7 @@ public class AddSkuCommandHandlerTests
         var command = new AddSkuCommand("Name");
 
         // Act
-        await _handler.Handle(command);
+        await _handler.Handle(command, CancellationToken.None);
 
         // Assert
         _repository.Verify(e => e.Add(It.IsAny<Sku>(), It.IsAny<CancellationToken>()), Times.Once);

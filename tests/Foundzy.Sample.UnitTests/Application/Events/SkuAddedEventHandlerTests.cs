@@ -23,7 +23,7 @@ public class SkuAddedEventHandlerTests
         var @event = new SkuAddedEvent(new("Name"));
 
         // Act
-        await _handler.Handle(@event);
+        await _handler.Handle(@event, CancellationToken.None);
 
         // Assert
         _repository.Verify(e => e.Add(It.IsAny<Notification>(), It.IsAny<CancellationToken>()), Times.Once);

@@ -7,7 +7,7 @@ public record GetNotificationsQuery : IQuery<IEnumerable<Notification>>;
 
 public class GetNotificationsQueryHandler(INotificationRepository repository) : IQueryHandler<GetNotificationsQuery, IEnumerable<Notification>>
 {
-    public async Task<IEnumerable<Notification>> Handle(GetNotificationsQuery request, CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<Notification>> Handle(GetNotificationsQuery request, CancellationToken cancellationToken)
     {
         return await repository.GetAll(cancellationToken);
     }
