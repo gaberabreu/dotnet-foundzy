@@ -1,4 +1,4 @@
-﻿using Foundzy.Sample.Layers.Domain.NotificationsAggregate;
+﻿using Foundzy.Sample.Layers.Core.NotificationsAggregate;
 
 namespace Foundzy.Sample.Layers.UseCases.Notifications.List;
 

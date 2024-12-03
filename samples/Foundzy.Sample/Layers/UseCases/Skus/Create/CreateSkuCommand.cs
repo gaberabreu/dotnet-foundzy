@@ -1,4 +1,4 @@
-﻿using Foundzy.Sample.Layers.Domain.SkuAggregate;
+﻿using Foundzy.Sample.Layers.Core.SkuAggregate;
 
 namespace Foundzy.Sample.Layers.UseCases.Skus.Create;
 
