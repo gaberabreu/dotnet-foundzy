@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using Foundzy.Sample.Application.Queries;
 using Foundzy.Sample.Controllers;
-using Foundzy.Sample.Domain.Entities;
+using Foundzy.Sample.Layers.Domain.NotificationsAggregate;
+using Foundzy.Sample.Layers.UseCases.Notifications.List;
 using MediatR;
 using Moq;
 
@@ -19,7 +19,7 @@ public class NotificationsControllerTests
     }
 
     [Fact]
-    public async Task Add_ShouldDispatchQueryProperly()
+    public async Task List_ShouldDispatchQueryProperly()
     {
         // Arrange
         var notifications = new List<Notification>()
@@ -28,15 +28,15 @@ public class NotificationsControllerTests
             new("Source2", "Message2")
         };
 
-        _mediator.Setup(e => e.Send(It.IsAny<GetNotificationsQuery>(), It.IsAny<CancellationToken>())).ReturnsAsync(notifications);
+        _mediator.Setup(e => e.Send(It.IsAny<ListNotificationsQuery>(), It.IsAny<CancellationToken>())).ReturnsAsync(notifications);
 
         // Act
-        var result = await _controller.Get();
+        var result = await _controller.List();
 
         // Assert
         result.Value.Should().HaveCount(2);
         result.Value.Should().Contain(notifications);
 
-        _mediator.Verify(e => e.Send(It.IsAny<GetNotificationsQuery>(), It.IsAny<CancellationToken>()), Times.Once);
+        _mediator.Verify(e => e.Send(It.IsAny<ListNotificationsQuery>(), It.IsAny<CancellationToken>()), Times.Once);
     }
 }

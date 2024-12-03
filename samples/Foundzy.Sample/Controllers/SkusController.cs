@@ -1,5 +1,5 @@
-﻿using Foundzy.Sample.Application.Commands;
-using Foundzy.Sample.Domain.Entities;
+﻿using Foundzy.Sample.Layers.Domain.SkuAggregate;
+using Foundzy.Sample.Layers.UseCases.Skus.Create;
 using Foundzy.Sample.Requests;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -12,9 +12,9 @@ namespace Foundzy.Sample.Controllers;
 public class SkusController(IMediator mediator) : ControllerBase
 {
     [HttpPost]
-    public async Task<Ok<Sku>> Add([FromBody] AddSkuRequest request)
+    public async Task<Ok<Sku>> Create([FromBody] CreateSkuRequest request)
     {
-        var command = new AddSkuCommand(request.Name);
+        var command = new CreateSkuCommand(request.Name);
         var result = await mediator.Send(command);
         return TypedResults.Ok(result);
     }
