@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Foundzy\Foundzy.csproj" />
+    <ProjectReference Include="..\..\samples\Foundzy.Sample\Foundzy.Sample.csproj" />
   </ItemGroup>
 
   <ItemGroup>
