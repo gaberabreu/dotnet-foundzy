@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using Foundzy.Sample.Application.Commands;
 using Foundzy.Sample.Controllers;
-using Foundzy.Sample.Domain.Entities;
+using Foundzy.Sample.Layers.Domain.SkuAggregate;
+using Foundzy.Sample.Layers.UseCases.Skus.Create;
 using Foundzy.Sample.Requests;
 using MediatR;
 using Moq;
@@ -20,24 +20,24 @@ public class SkusControllerTests
     }
 
     [Fact]
-    public async Task Add_ShouldDispatchCommandProperly()
+    public async Task Create_ShouldDispatchCommandProperly()
     {
         // Arrange
-        var request = new AddSkuRequest()
+        var request = new CreateSkuRequest()
         {
             Name = "Name"
         };
 
         var sku = new Sku(request.Name);
 
-        _mediator.Setup(e => e.Send(It.IsAny<AddSkuCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(sku);
+        _mediator.Setup(e => e.Send(It.IsAny<CreateSkuCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(sku);
 
         // Act
-        var result = await _controller.Add(request);
+        var result = await _controller.Create(request);
 
         // Assert
         result.Value.Should().Be(sku);
 
-        _mediator.Verify(e => e.Send(It.IsAny<AddSkuCommand>(), It.IsAny<CancellationToken>()), Times.Once);
+        _mediator.Verify(e => e.Send(It.IsAny<CreateSkuCommand>(), It.IsAny<CancellationToken>()), Times.Once);
     }
 }

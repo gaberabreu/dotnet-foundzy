@@ -2,4 +2,4 @@
 
 namespace Foundzy;
 
-public interface IEventHandler<in TEvent> : INotificationHandler<TEvent> where TEvent : IEvent;
+public interface IEventHandler<in TEvent> : INotificationHandler<TEvent> where TEvent : DomainEventBase;
