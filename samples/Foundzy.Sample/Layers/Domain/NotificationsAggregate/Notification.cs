@@ -1,12 +1,12 @@
 ﻿namespace Foundzy.Sample.Layers.Domain.NotificationsAggregate;
 
-public class Notification(Guid id, DateTime createdOn, string source, string message)
+public class Notification(Guid id, DateTime dateOccurred, string source, string message)
 {
     public Guid Id { get; set; } = id;
-    public DateTime CreatedOn { get; set; } = createdOn;
+    public DateTime DateOccurred { get; set; } = dateOccurred;
     public string Source { get; set; } = source;
     public string Message { get; set; } = message;
 
-    public Notification(string source, string message)
-        : this(Guid.NewGuid(), DateTime.UtcNow, source, message) { }
+    public Notification(DateTime dateOccurred, string source, string message)
+        : this(Guid.NewGuid(), dateOccurred, source, message) { }
 }

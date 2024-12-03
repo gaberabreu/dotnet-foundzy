@@ -25,8 +25,8 @@ public class ListNotificationsQueryHandlerTests
 
         var notifications = new List<Notification>()
         {
-            new("Source1", "Message1"),
-            new("Source2", "Message2")
+            new(DateTime.UtcNow, "Source1", "Message1"),
+            new(DateTime.UtcNow, "Source2", "Message2")
         };
 
         _repository.Setup(e => e.GetAll(It.IsAny<CancellationToken>())).ReturnsAsync(notifications);

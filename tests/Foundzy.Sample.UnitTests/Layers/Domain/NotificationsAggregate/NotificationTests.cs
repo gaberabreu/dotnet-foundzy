@@ -9,15 +9,16 @@ public class NotificationTests
     public void Ctor1_ShouldInstantiateProperly()
     {
         // Arrange
+        var dateOcurred = DateTime.UtcNow;
         var source = "Source";
         var message = "Message";
 
         // Act
-        var notification = new Notification(source, message);
+        var notification = new Notification(dateOcurred, source, message);
 
         // Assert
         notification.Id.Should().NotBeEmpty();
-        notification.CreatedOn.Should().NotBe(DateTime.MinValue);
+        notification.DateOccurred.Should().Be(dateOcurred);
         notification.Source.Should().Be(source);
         notification.Message.Should().Be(message);
     }
@@ -27,16 +28,16 @@ public class NotificationTests
     {
         // Arrange
         var id = Guid.NewGuid();
-        var createdOn = DateTime.UtcNow;
+        var dateOcurred = DateTime.UtcNow;
         var source = "Source";
         var message = "Message";
 
         // Act
-        var notification = new Notification(id, createdOn, source, message);
+        var notification = new Notification(id, dateOcurred, source, message);
 
         // Assert
         notification.Id.Should().Be(id);
-        notification.CreatedOn.Should().Be(createdOn);
+        notification.DateOccurred.Should().Be(dateOcurred);
         notification.Source.Should().Be(source);
         notification.Message.Should().Be(message);
     }

@@ -9,6 +9,6 @@ public class SkuCreatedEventHandler(INotificationRepository repository) : INotif
 {
     public async Task Handle(SkuCreatedEvent notification, CancellationToken cancellationToken)
     {
-        await repository.Add(new Notification(notification.GetType().Name, $"Sku '{notification.Sku.Id}' was added."), cancellationToken);
+        await repository.Add(new Notification(notification.DateOccurred, notification.GetType().Name, $"Sku '{notification.Sku.Id}' was added."), cancellationToken);
     }
 }
