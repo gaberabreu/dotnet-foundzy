@@ -1,6 +1,8 @@
 using System.Reflection;
+using Foundzy;
 using Foundzy.Sample.Domain.Interfaces;
 using Foundzy.Sample.Infra.Data.Repositories;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,7 @@ builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
 });
+builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
 builder.Services.AddSingleton<ISkuRepository, SkuRepository>();
 builder.Services.AddSingleton<INotificationRepository, NotificationRepository>();
