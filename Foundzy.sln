@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foundzy", "src\Foundzy\Foun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foundzy.UnitTests", "tests\Foundzy.UnitTests\Foundzy.UnitTests.csproj", "{2B2B3FB8-9B63-49C4-A9A3-9B0BC6E9784C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{931949FB-0712-4E8A-8CFF-B5A14DF92878}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foundzy.Sample", "samples\Foundzy.Sample\Foundzy.Sample.csproj", "{4F136BCB-AEC1-4B05-AF12-EA321F2BD209}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foundzy.Sample.UnitTests", "tests\Foundzy.Sample.UnitTests\Foundzy.Sample.UnitTests.csproj", "{319E6683-E3B8-4204-A3E6-3D400E9ED913}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +31,14 @@ Global
 		{2B2B3FB8-9B63-49C4-A9A3-9B0BC6E9784C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B2B3FB8-9B63-49C4-A9A3-9B0BC6E9784C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B2B3FB8-9B63-49C4-A9A3-9B0BC6E9784C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F136BCB-AEC1-4B05-AF12-EA321F2BD209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F136BCB-AEC1-4B05-AF12-EA321F2BD209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F136BCB-AEC1-4B05-AF12-EA321F2BD209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F136BCB-AEC1-4B05-AF12-EA321F2BD209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{319E6683-E3B8-4204-A3E6-3D400E9ED913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319E6683-E3B8-4204-A3E6-3D400E9ED913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319E6683-E3B8-4204-A3E6-3D400E9ED913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319E6683-E3B8-4204-A3E6-3D400E9ED913}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +46,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{238E967F-862F-4E07-A5DE-06D56828072E} = {084D60CE-620F-4B44-A7B0-4029B7B6335B}
 		{2B2B3FB8-9B63-49C4-A9A3-9B0BC6E9784C} = {D5DA11A1-7D12-4A08-AADF-7B328FE79EB7}
+		{4F136BCB-AEC1-4B05-AF12-EA321F2BD209} = {931949FB-0712-4E8A-8CFF-B5A14DF92878}
+		{319E6683-E3B8-4204-A3E6-3D400E9ED913} = {D5DA11A1-7D12-4A08-AADF-7B328FE79EB7}
 	EndGlobalSection
 EndGlobal
