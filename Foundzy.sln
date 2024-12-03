@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{084D60CE-620F-4B44-A7B0-4029B7B6335B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D5DA11A1-7D12-4A08-AADF-7B328FE79EB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foundzy", "src\Foundzy\Foundzy.csproj", "{238E967F-862F-4E07-A5DE-06D56828072E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foundzy.UnitTests", "tests\Foundzy.UnitTests\Foundzy.UnitTests.csproj", "{2B2B3FB8-9B63-49C4-A9A3-9B0BC6E9784C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{238E967F-862F-4E07-A5DE-06D56828072E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{238E967F-862F-4E07-A5DE-06D56828072E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{238E967F-862F-4E07-A5DE-06D56828072E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{238E967F-862F-4E07-A5DE-06D56828072E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B2B3FB8-9B63-49C4-A9A3-9B0BC6E9784C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B2B3FB8-9B63-49C4-A9A3-9B0BC6E9784C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B2B3FB8-9B63-49C4-A9A3-9B0BC6E9784C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B2B3FB8-9B63-49C4-A9A3-9B0BC6E9784C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{238E967F-862F-4E07-A5DE-06D56828072E} = {084D60CE-620F-4B44-A7B0-4029B7B6335B}
+		{2B2B3FB8-9B63-49C4-A9A3-9B0BC6E9784C} = {D5DA11A1-7D12-4A08-AADF-7B328FE79EB7}
+	EndGlobalSection
+EndGlobal
